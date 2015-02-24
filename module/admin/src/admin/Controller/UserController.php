@@ -13,15 +13,21 @@ use Zend\EventManager\EventManagerInterface;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
-class IndexController extends AbstractActionController
+class UserController extends AbstractActionController
 {
-    public function indexAction()
-    {
-    	
+    public function indexAction(){
+        $q = '';
+        $this->flashMessenger()->addSuccessMessage('User erfolgreich bearbeitet');
+        return array('q' => $q);
+    }
+    public function editAction(){
+    	return array();
+    }
+    public function addAction(){
         return array();
     }
-    public function loginAction(){
-    	return array();
+    public function deleteAction(){
+        return array();
     }
 
 

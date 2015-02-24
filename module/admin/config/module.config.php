@@ -27,15 +27,15 @@ return array(
                 ),
                 'may_terminate' => true,
                 'child_routes' => array(
-                    'default' => array(
+                    'user' => array(
                         'type'    => 'Segment',
                         'options' => array(
-                            'route'    => '/[:controller[/:action]]',
+                            'route'    => '/user[/:action]',
                             'constraints' => array(
-                                'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*'
                             ),
                             'defaults' => array(
+                                'controller' => 'User'
                             ),
                         ),
                     ),
@@ -64,7 +64,8 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'admin\Controller\Index' => 'admin\Controller\IndexController'
+            'admin\Controller\Index' => 'admin\Controller\IndexController',
+            'admin\Controller\User' => 'admin\Controller\UserController'
         ),
     ),
     'view_manager' => array(
