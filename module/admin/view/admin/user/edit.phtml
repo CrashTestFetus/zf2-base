@@ -1,20 +1,54 @@
- 
-
-        <h1>You can add your site here.</h1>
-
-        <h2>To ensure that material-design theme is working, check out the buttons below.</h2>
-
-        <h3 class="text-muted">If you can see the ripple effect on clicking them, then you are good to go!</h3>
-        <h4>login</h4>
-
-        <p class="bs-component">
-            <a href="javascript:void(0)" class="btn btn-default">Default</a>
-            <a href="javascript:void(0)" class="btn btn-primary">Primary</a>
-            <a href="javascript:void(0)" class="btn btn-success">Success</a>
-            <a href="javascript:void(0)" class="btn btn-info">Info</a>
-            <a href="javascript:void(0)" class="btn btn-warning">Warning</a>
-            <a href="javascript:void(0)" class="btn btn-danger">Danger</a>
-            <a href="javascript:void(0)" class="btn btn-link">Link</a>
-        </p>
-
-        
+<?php
+$title = 'User - Edit';
+$this->headTitle($title);
+?> 
+<div class="well page grey lighten-5 z-depth-1">
+    <div class="row">
+        <h3 class="col s12">Edit a user</h3>
+        <form class="col s12" method="POST">
+        <input type="hidden" name="id" value="<?=$user->id?>">
+            <?php /*<div class="row">
+                <div class="input-field col s6">
+                    <input id="first_name" type="text" class="validate">
+                    <label for="first_name">First Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="last_name" type="text" class="validate">
+                    <label for="last_name">Last Name</label>
+                </div>
+            </div>
+             */ ?>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="name" name="name" type="text" class="validate" value="<?=$user->name?>">
+                    <label for="name">Name</label>
+                </div>
+            </div>
+            <?php /*
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="password" type="password" class="validate">
+                    <label for="password">Password</label>
+                </div>
+            </div>
+            */ ?>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="email" name="email" type="email" class="validate" value="<?=$user->email?>">
+                    <label for="email">Email</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 right-align">
+                    <a href="<?=$this->url('admin/user')?>">
+                        <button class="btn-flat waves-effect waves-darken" type="button" name="cancel">cancel
+                        </button>
+                    </a>
+                    <button class="btn-flat waves-effect waves-darken green-text" type="submit" name="save">Save
+                        <i class="mdi-content-add-circle right"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

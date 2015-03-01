@@ -7,6 +7,9 @@ body {
 main {
     flex: 1 0 auto;
 }
+li{
+	list-style:none;
+}
 ul.side-nav.fixed li {
 	line-height: 44px;
 }
@@ -27,7 +30,7 @@ nav .nav-wrapper a.page-title{
 	font-size:32px;
 }
 .action-button-pos{
-	position:fixed;
+	position:absolute;
 	bottom:100px ;
 	right:28px;
 	z-index:4;

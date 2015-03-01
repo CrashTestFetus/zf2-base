@@ -15,16 +15,24 @@ use Zend\View\Model\ViewModel;
 
 class IndexController extends AbstractActionController
 {
+    protected $userTable;
     public function indexAction()
     {
-    	
-        return array();
+    	$latestUser = $this->getUserTable()->fetchLatest();
+        return array('latestUser' => $latestUser);
     }
     public function loginAction(){
     	return array();
     }
 
-
+    //tables
+    public function getUserTable(){
+        if (!$this->userTable) {
+            $sm = $this->getServiceLocator();
+            $this->userTable = $sm->get('admin\Model\UserTable');
+        }
+        return $this->userTable;
+    }
 
     //Layout auf admin/layout setzen
     public function setEventManager(EventManagerInterface $events){

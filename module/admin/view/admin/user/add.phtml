@@ -19,8 +19,8 @@ $this->headTitle($title);
              */ ?>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="username" type="text" class="validate">
-                    <label for="username">Username</label>
+                    <input id="name" name="name" type="text" class="validate">
+                    <label for="name">Name</label>
                 </div>
             </div>
             <?php /*
@@ -33,7 +33,7 @@ $this->headTitle($title);
             */ ?>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="email" type="email" class="validate">
+                    <input id="email"  name="email" type="email" class="validate">
                     <label for="email">Email</label>
                 </div>
             </div>
@@ -43,7 +43,7 @@ $this->headTitle($title);
                         <button class="btn-flat waves-effect waves-darken" type="button" name="cancel">cancel
                         </button>
                     </a>
-                    <button class="btn-flat waves-effect waves-darken green-text" type="button" name="save">Save
+                    <button class="btn-flat waves-effect waves-darken green-text" type="submit" name="save">Save
                         <i class="mdi-content-add-circle right"></i>
                     </button>
                 </div>

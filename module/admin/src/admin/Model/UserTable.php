@@ -6,6 +6,7 @@ use Zend\Paginator\Paginator;
 use Zend\Db\Sql\Where;
 use Zend\Db\Sql\Predicate; 
 use Zend\Paginator\Adapter\DbSelect;
+use admin\Model\User;
 
 class UserTable{
     protected $tableGateway;
@@ -57,6 +58,15 @@ class UserTable{
     public function fetchAll(){
         $resultSet = $this->tableGateway->select();
         return $resultSet;
+    }
+    public function fetchLatest(){
+        $sql = $this->tableGateway->getSql();
+        $select = $sql->select();
+        $select->order('id DESC');
+        $select->limit(5);
+        $resultSet = $this->tableGateway->selectWith($select);
+        return $resultSet;
+        
     }
 
     public function getUserById($id){

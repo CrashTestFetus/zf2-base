@@ -55,14 +55,14 @@ $this->headTitle($title);
                             <td><?php echo $this->escapeHtml($user->email);?></td>
 
                             <td>
-                                <a class='dropdown-button waves-effect waves-teal btn-flat' href='#' data-activates='dropdown1'><i class="small mdi-navigation-more-vert"></i></a>
+                                <a class='dropdown-button waves-effect waves-teal btn-flat' href='#' data-activates='dropdown<?=$user->id?>'><i class="small mdi-navigation-more-vert"></i></a>
 
                                 <!-- Dropdown Structure -->
-                                <ul id='dropdown1' class='dropdown-content'>
-                                    <li><a href="<?php echo $this->url('admin/user', array('action'=>'edit', 'id' => $user->id));?>">edit</a></li>
-                                    <li><a href="<?php echo $this->url('admin/user', array('action'=>'view', 'id' => $user->id));?>">view</a></li>
+                                <ul id='dropdown<?=$user->id?>' class='dropdown-content'>
+                                    <li><a href="<?php echo $this->url('admin/user', array('action'=>'edit', 'user_id' => $user->id));?>">edit</a></li>
+                                    <li><a href="<?php echo $this->url('admin/user', array('action'=>'view', 'user_id' => $user->id));?>">view</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="#"  onclick="return deleteConfirm(users[<?=$user->id?>], '<?php echo $this->url('admin/user', array('action'=>'delete', 'id' => $user->id));?>')">delete</a></li>
+                                    <li><a href="#"  onclick="return deleteConfirm(users[<?=$user->id?>], '<?php echo $this->url('admin/user', array('action'=>'delete', 'user_id' => $user->id));?>')">delete</a></li>
                                 </ul>
                         </td>
                         </tr>

@@ -12,6 +12,7 @@ namespace admin\Controller;
 use Zend\EventManager\EventManagerInterface;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+use admin\Model\User;
 
 class UserController extends AbstractActionController
 {
@@ -47,15 +48,57 @@ class UserController extends AbstractActionController
     }
 
     public function editAction(){
-    	return array();
+        $request = $this->getRequest();
+        if($request->isPost()){
+            $postdata = $request->getPost();
+            $user = new User();
+            $user->exchangeArray($postdata);
+            $this->getUserTable()->saveUser($user);
+
+            //set feedback
+            $this->flashMessenger()->addSuccessMessage('User successfully edited');
+
+            //redirect
+            return $this->redirect()->toRoute('admin/user', array('action' => 'index'));
+        }
+        $user_id = $this->params('user_id',NULL);
+        if($user_id){
+            $user = $this->getUserTable()->getUserById($user_id);
+            return array('user'=>$user);    
+        }
+        else{
+            $this->flashMessenger()->addErrorMessage('Error: no userid');
+            return $this->redirect()->toRoute('admin/user', array('action' => 'index'));
+        }
+        
     }
 
     public function addAction(){
+        $request = $this->getRequest();
+        if($request->isPost()){
+            $postdata = $request->getPost();
+            $user = new User();
+            $user->exchangeArray($postdata);
+            $this->getUserTable()->saveUser($user);
+
+            //set feedback
+            $this->flashMessenger()->addSuccessMessage('User successfully added');
+
+            //redirect
+            return $this->redirect()->toRoute('admin/user', array('action' => 'index'));
+        }
         return array();
     }
 
     public function deleteAction(){
-        $this->flashMessenger()->addSuccessMessage('User erfolgreich gelöscht');
+        $user_id = $this->params('user_id',NULL);
+        if($user_id){
+            $this->getUserTable()->deleteUser($user_id);
+            $this->flashMessenger()->addSuccessMessage('User sucessfully deleted');    
+        }else{
+            $this->flashMessenger()->addErrorMessage('Error: no userid');    
+        }
+        
         return $this->redirect()->toRoute('admin/user', array('action' => 'index'));
     }
 

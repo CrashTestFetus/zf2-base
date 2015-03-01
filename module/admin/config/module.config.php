@@ -30,12 +30,20 @@ return array(
                     'user' => array(
                         'type'    => 'Segment',
                         'options' => array(
-                            'route'    => '/user[/:action]',
+                            'route'    => '/user[/action/:action][/user_id/:user_id][/q/:q][/page/:page][/order_by/:order_by][/:order]',
                             'constraints' => array(
+                                'user_id' => '[0-9]+',
+                                'page' => '[0-9]+',
+                                'order_by' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'order' => 'asc|desc',
                                 'action'     => '[a-zA-Z][a-zA-Z0-9_-]*'
                             ),
                             'defaults' => array(
-                                'controller' => 'User'
+                                'controller' => 'User',
+                                'action' => 'index',
+                                'page' => 1,
+                                'q' => '',
+                                'order_by' => ''
                             ),
                         ),
                     ),
