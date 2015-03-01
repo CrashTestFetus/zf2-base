@@ -50,9 +50,9 @@ $this->headTitle($title);
                         </script>
                         <tr>
                             <td><?php echo $this->escapeHtml($user->id);?></td>
-                            <td><?php echo $this->escapeHtml($user->name);?></td>
+                            <td class="truncate"><?php echo $this->escapeHtml($user->name);?></td>
                             
-                            <td><?php echo $this->escapeHtml($user->email);?></td>
+                            <td class="truncate"><?php echo $this->escapeHtml($user->email);?></td>
 
                             <td>
                                 <a class='dropdown-button waves-effect waves-teal btn-flat' href='#' data-activates='dropdown<?=$user->id?>'><i class="small mdi-navigation-more-vert"></i></a>
