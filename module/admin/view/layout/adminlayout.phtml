@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <?php echo $this->headTitle('Admin')?>
+        <?php echo $this->headTitle()?>
 
         <?php echo $this->headMeta()
             ->appendName('viewport', 'width=device-width, initial-scale=1.0')
@@ -13,52 +13,56 @@
         <!-- Le styles -->
         <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
                         ->prependStylesheet($this->basePath() . '/css/style.css')
-                        ->prependStylesheet($this->basePath() . '/css/ripples.min.css')
-                        ->prependStylesheet($this->basePath() . '/css/material.min.css')
-                        ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css') ?>
+                        ->prependStylesheet($this->basePath() . '/css/materialize.min.css') ?>
 
         <!-- Scripts -->
         <?php echo $this->headScript()
-            ->prependFile($this->basePath() . '/js/bootstrap.min.js')
+            ->prependFile($this->basePath() . '/js/main.js')
+            ->prependFile($this->basePath() . '/js/materialize.min.js')
             ->prependFile($this->basePath() . '/js/jquery.min.js')
-            ->prependFile($this->basePath() . '/js/respond.min.js', 'text/javascript', array('conditional' => 'lt IE 9',))
-            ->prependFile($this->basePath() . '/js/html5shiv.js',   'text/javascript', array('conditional' => 'lt IE 9',))
+            ->prependFile($this->basePath() . '/js/main.js')
         ; ?>
 
     </head>
-    <body>
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <body class="grey lighten-2">
+        <header>
             <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="<?php echo $this->url('admin') ?>"><?php echo $this->translate('Home') ?></a></li>
-                        <li><a href="<?php echo $this->url('admin/user') ?>"><?php echo $this->translate('User') ?></a></li>
-                    </ul>
-                </div><!--/.nav-collapse -->
+                
             </div>
-        </nav>
-        <div class="container">
-            <?php echo $this->content; ?>
-            <hr>
-            <footer>
-                <p>&copy; <?php echo date('Y') ?> admin</p>
-            </footer>
-        </div> <!-- /container -->
-        <?php echo $this->inlineScript()
-            ->prependFile($this->basePath() . '/js/ripples.min.js')
-            ->prependFile($this->basePath() . '/js/material.min.js') ?>
-            <script>
-            $(document).ready(function() {
-                $.material.init();
-            });
-        </script>
+            <nav class="top-nav blue">
+                <div class="container">
+                    <div class="nav-wrapper">
+                    <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full">
+                        <i class="mdi-navigation-menu"></i>
+                    </a>
+                        <a href="#!" class="page-title"><span class="header-text-fix"><?=$this->headTitle()->renderTitle()?></span></a>
+                        
+                        
+                    </div>
+                </div>
+            </nav>
+            
+            <ul class="side-nav fixed" id="nav-mobile">
+                <li class="logo"><a href="<?=$this->url('admin')?>"><img src="/img/banana.png" class="responsive-img"/></a></li>
+                <li><a href="<?=$this->url('admin/user')?>">User</a></li>
+                <li><a href="<?=$this->url('admin/user')?>">Blog</a></li>
+                <li><a href="<?=$this->url('admin/user')?>">Events</a></li>
+            </ul>
+        </header>
+        <main>
+            <div class="container">
+                <?php echo $this->content; ?>
+            </div>
+        </main>
+        <footer class="page-footer blue">
+            <div class="footer-copyright">
+                <div class="container">
+                    &copy; Copyright <?php echo date('Y') ?> admin
+                    <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                </div>
+            </div>
+        </footer>
+        <?php echo $this->inlineScript() ?>
+            
     </body>
 </html>

@@ -1,0 +1,53 @@
+<?php
+$title = 'User - Add';
+$this->headTitle($title);
+?> 
+<div class="well page grey lighten-5 z-depth-1">
+    <div class="row">
+        <h3 class="col s12">Add a user</h3>
+        <form class="col s12" method="POST">
+            <?php /*<div class="row">
+                <div class="input-field col s6">
+                    <input id="first_name" type="text" class="validate">
+                    <label for="first_name">First Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="last_name" type="text" class="validate">
+                    <label for="last_name">Last Name</label>
+                </div>
+            </div>
+             */ ?>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="username" type="text" class="validate">
+                    <label for="username">Username</label>
+                </div>
+            </div>
+            <?php /*
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="password" type="password" class="validate">
+                    <label for="password">Password</label>
+                </div>
+            </div>
+            */ ?>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="email" type="email" class="validate">
+                    <label for="email">Email</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 right-align">
+                    <a href="<?=$this->url('admin/user')?>">
+                        <button class="btn-flat waves-effect waves-darken" type="button" name="cancel">cancel
+                        </button>
+                    </a>
+                    <button class="btn-flat waves-effect waves-darken green-text" type="button" name="save">Save
+                        <i class="mdi-content-add-circle right"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
