@@ -30,7 +30,7 @@ nav .nav-wrapper a.page-title{
 	font-size:32px;
 }
 .action-button-pos{
-	position:absolute;
+	position:fixed;
 	bottom:100px ;
 	right:28px;
 	z-index:4;
@@ -69,6 +69,7 @@ ul.side-nav.fixed li.logo:hover{
 		left:50%;
 	}
 	.action-button-pos{
+		position:absolute;
 		top:30px ;
 		right:60px;
 	}
